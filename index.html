@@ -3,49 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loja de Roupas - Armoni</title>
-    <link rel="stylesheet" href="index.css">
+    <title>Armoni - Moda Masculina e Feminina</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Armoni - Loja de Roupas</h1>
-        <p>Moda Feminina e Masculina com Estilo e Qualidade</p>
+        <h1>Armoni</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Masculino</a></li>
+                <li><a href="#">Feminino</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <nav>
-        <a href="#">Início</a>
-        <a href="#">Feminino</a>
-        <a href="#">Masculino</a>
-        <a href="#">Acessórios</a>
-        <a href="#">Contato</a>
-    </nav>
+    <section class="hero">
+        <h2>Moda Minimalista, Qualidade Máxima</h2>
+        <p>Explore nossa coleção de roupas masculinas e femininas.</p>
+        <a href="#produtos" class="btn">Ver Coleção</a>
+    </section>
 
-    <div class="container">
-        <h2>Novidades</h2>
-        <div class="product">
-            <div class="product-item">
-                <img src="https://via.placeholder.com/300x300" alt="Produto 1">
-                <h3>Camisa Social Masculina</h3>
+    <section id="produtos" class="produtos">
+        <h2>Nossos Produtos</h2>
+        <div class="carrossel">
+            <div class="produto-item">
+                <img src="https://via.placeholder.com/300x400" alt="Camisa Masculina">
+                <h3>Camisa Masculina</h3>
                 <p>R$ 79,90</p>
-                <button>Comprar</button>
+                <button class="btn-comprar">Comprar</button>
             </div>
-            <div class="product-item">
-                <img src="https://via.placeholder.com/300x300" alt="Produto 2">
-                <h3>Vestido Feminino Floral</h3>
+            <div class="produto-item">
+                <img src="https://via.placeholder.com/300x400" alt="Vestido Feminino">
+                <h3>Vestido Feminino</h3>
                 <p>R$ 99,90</p>
-                <button>Comprar</button>
+                <button class="btn-comprar">Comprar</button>
             </div>
-            <div class="product-item">
-                <img src="https://via.placeholder.com/300x300" alt="Produto 3">
-                <h3>Jaqueta Jeans Unissex</h3>
+            <div class="produto-item">
+                <img src="https://via.placeholder.com/300x400" alt="Jaqueta Jeans">
+                <h3>Jaqueta Jeans</h3>
                 <p>R$ 129,90</p>
-                <button>Comprar</button>
+                <button class="btn-comprar">Comprar</button>
             </div>
         </div>
-    </div>
+    </section>
 
     <footer>
         <p>&copy; 2024 Armoni. Todos os direitos reservados.</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
