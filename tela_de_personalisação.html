@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Armoni - Personalização de Looks</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #003366;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input, select {
+            margin: 5px;
+            padding: 10px;
+            width: 200px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #003366;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .results {
+            margin-top: 20px;
+        }
+        .item {
+            border: 1px solid #003366;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Armoni - Personalização de Looks</h1>
+
+    <form id="preferencesForm">
+        <label for="style">Estilo de Roupa:</label>
+        <select id="style">
+            <option value="casual">Casual</option>
+            <option value="elegante">Elegante</option>
+            <option value="formal">Formal</option>
+            <option value="esportivo">Esportivo</option>
+        </select>
+
+        <label for="gender">Gênero:</label>
+        <select id="gender">
+            <option value="masculino">Masculino</option>
+            <option value="feminino">Feminino</option>
+        </select>
+
+        <label for="occasion">Ocasião:</label>
+        <select id="occasion">
+            <option value="dia a dia">Dia a Dia</option>
+            <option value="festa">Festa</option>
+            <option value="trabalho">Trabalho</option>
+            <option value="passeio">Passeio</option>
+            <option value="noite">Noite</option>
+            <option value="evento">Evento</option>
+        </select>
+
+        <button type="button" onclick="suggestLooks()">Sugira Looks</button>
+    </form>
+
+    <div class="results" id="results"></div>
+
+    <script>
+        const catalog = [
+            { id: 1, name: "T-shirt Básica Branca", style: "casual", gender: "masculino", color: "branco", occasion: "dia a dia" },
+            { id: 2, name: "Vestido Vermelho Elegante", style: "elegante", gender: "feminino", color: "vermelho", occasion: "festa" },
+            { id: 3, name: "Jaqueta Jeans", style: "casual", gender: "masculino", color: "azul", occasion: "passeio" },
+            { id: 4, name: "Calça Social Preta", style: "formal", gender: "masculino", color: "preto", occasion: "trabalho" },
+            { id: 5, name: "Saia Plissada Rosa", style: "casual", gender: "feminino", color: "rosa", occasion: "dia a dia" },
+            { id: 6, name: "Blusa de Seda Preta", style: "elegante", gender: "feminino", color: "preto", occasion: "trabalho" },
+            { id: 7, name: "Terno Completo Azul", style: "formal", gender: "masculino", color: "azul", occasion: "evento" },
+            { id: 8, name: "Macacão de Linho Bege", style: "casual", gender: "feminino", color: "bege", occasion: "passeio" },
+            { id: 9, name: "Blazer Branco", style: "formal", gender: "feminino", color: "branco", occasion: "trabalho" },
+            { id: 10, name: "Tênis Esportivo Cinza", style: "esportivo", gender: "masculino", color: "cinza", occasion: "academia" },
+            { id: 11, name: "Jaqueta de Couro Preta", style: "casual", gender: "masculino", color: "preto", occasion: "noite" },
+            { id: 12, name: "Vestido Longo Azul", style: "elegante", gender: "feminino", color: "azul", occasion: "festa" },
+            { id: 13, name: "Camiseta Verde Estampada", style: "casual", gender: "masculino", color: "verde", occasion: "dia a dia" },
+            { id: 14, name: "Calça Jeans Rasgada", style: "casual", gender: "masculino", color: "azul", occasion: "passeio" },
+            { id: 15, name: "Blusa de Frio Vermelha", style: "casual", gender: "feminino", color: "vermelho", occasion: "noite" },
+            { id: 16, name: "Shorts de Algodão", style: "casual", gender: "feminino", color: "branco", occasion: "passeio" },
+            { id: 17, name: "Suéter de Lã Cinza", style: "casual", gender: "masculino", color: "cinza", occasion: "noite" },
+            { id: 18, name: "Camiseta de Gola Polo", style: "casual", gender: "masculino", color: "azul", occasion: "trabalho" },
+            { id: 19, name: "Blusa de Manga Longa Floral", style: "casual", gender: "feminino", color: "floral", occasion: "dia a dia" },
+            { id: 20, name: "Calça Jogger Preta", style: "casual", gender: "masculino", color: "preto", occasion: "academia" },
+        ];
+
+        function suggestLooks() {
+            const selectedStyle = document.getElementById("style").value;
+            const selectedGender = document.getElementById("gender").value;
+            const selectedOccasion = document.getElementById("occasion").value;
+
+            const filteredItems = catalog.filter(item => 
+                item.style === selectedStyle && 
+                item.gender === selectedGender && 
+                item.occasion === selectedOccasion
+            );
+
+            const resultsDiv = document.getElementById("results");
+            resultsDiv.innerHTML = "";
+
+            if (filteredItems.length === 0) {
+                resultsDiv.innerHTML = "<p>Nenhum look encontrado para suas preferências.</p>";
+            } else {
+                filteredItems.forEach(item => {
+                    const itemDiv = document.createElement("div");
+                    itemDiv.className = "item";
+                    itemDiv.innerHTML = `<strong>${item.name}</strong> - ${item.color}`;
+                    resultsDiv.appendChild(itemDiv);
+                });
+            }
+        }
+    </script>
+</body>
+</html>
