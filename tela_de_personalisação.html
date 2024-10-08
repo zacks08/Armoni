@@ -4,41 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Armoni - Personalização de Looks</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 20px;
-        }
-        h1 {
-            color: #003366;
-        }
-        form {
-            margin-bottom: 20px;
-        }
-        input, select {
-            margin: 5px;
-            padding: 10px;
-            width: 200px;
-        }
-        button {
-            padding: 10px 15px;
-            background-color: #003366;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        .results {
-            margin-top: 20px;
-        }
-        .item {
-            border: 1px solid #003366;
-            border-radius: 5px;
-            padding: 10px;
-            margin: 5px;
-        }
-    </style>
+    <link rel="stylesheet" href="tela de personalização.css">
 </head>
 <body>
 
@@ -73,66 +39,7 @@
     </form>
 
     <div class="results" id="results"></div>
-
-    <script>
-        const catalog = [
-            { id: 1, name: "T-shirt Básica Branca", style: "casual", gender: "masculino", color: "branco", occasion: "dia a dia" },
-            { id: 2, name: "Vestido Vermelho Elegante", style: "elegante", gender: "feminino", color: "vermelho", occasion: "festa" },
-            { id: 3, name: "Jaqueta Jeans", style: "casual", gender: "masculino", color: "azul", occasion: "passeio" },
-            { id: 4, name: "Calça Social Preta", style: "formal", gender: "masculino", color: "preto", occasion: "trabalho" },
-            { id: 5, name: "Saia Plissada Rosa", style: "casual", gender: "feminino", color: "rosa", occasion: "dia a dia" },
-            { id: 6, name: "Blusa de Seda Preta", style: "elegante", gender: "feminino", color: "preto", occasion: "trabalho" },
-            { id: 7, name: "Terno Completo Azul", style: "formal", gender: "masculino", color: "azul", occasion: "evento" },
-            { id: 8, name: "Macacão de Linho Bege", style: "casual", gender: "feminino", color: "bege", occasion: "passeio" },
-            { id: 9, name: "Blazer Branco", style: "formal", gender: "feminino", color: "branco", occasion: "trabalho" },
-            { id: 10, name: "Tênis Esportivo Cinza", style: "esportivo", gender: "masculino", color: "cinza", occasion: "academia" },
-            { id: 11, name: "Jaqueta de Couro Preta", style: "casual", gender: "masculino", color: "preto", occasion: "noite" },
-            { id: 12, name: "Vestido Longo Azul", style: "elegante", gender: "feminino", color: "azul", occasion: "festa" },
-            { id: 13, name: "Camiseta Verde Estampada", style: "casual", gender: "masculino", color: "verde", occasion: "dia a dia" },
-            { id: 14, name: "Calça Jeans Rasgada", style: "casual", gender: "masculino", color: "azul", occasion: "passeio" },
-            { id: 15, name: "Blusa de Frio Vermelha", style: "casual", gender: "feminino", color: "vermelho", occasion: "noite" },
-            { id: 16, name: "Shorts de Algodão", style: "casual", gender: "feminino", color: "branco", occasion: "passeio" },
-            { id: 17, name: "Suéter de Lã Cinza", style: "casual", gender: "masculino", color: "cinza", occasion: "noite" },
-            { id: 18, name: "Camiseta de Gola Polo", style: "casual", gender: "masculino", color: "azul", occasion: "trabalho" },
-            { id: 19, name: "Blusa de Manga Longa Floral", style: "casual", gender: "feminino", color: "floral", occasion: "dia a dia" },
-            { id: 20, name: "Calça Jogger Preta", style: "casual", gender: "masculino", color: "preto", occasion: "academia" },
-            { id: 21, name: "Vestido Longo Branco", style: "casual", gender: "masculino", color: "branco", occasion: "dia a dia" },
-            { id: 22, name: "Blusa de Frio Branca", style: "casual", gender: "feminino", color: "branco", occasion: "passeio" },
-            { id: 23, name: "Vestido de Pijama Rosa", style: "casual", gender: "feminino", color: "rosa", occasion: "festa" },
-            { id: 24, name: "Camiseta de Gola Polo Azul", style: "casual", gender: "masculino", color: "azul", occasion: "trabalho" },
-            { id: 25, name: "Blusa de Frio Branca", style: "casual", gender: "feminino", color: "branco", occasion: "passeio" },
-            { id: 26, name: "Blusa de Frio Rosa", style: "casual", gender: "feminino", color: "rosa", occasion: "passeio" },
-            { id: 27, name: "Vestido Longo Rosa", style: "casual", gender: "feminino", color: "rosa", occasion: "festa" },
-            { id: 28, name: "Shorts de Algodão Azul", style: "casual", gender: "feminino", color: "azul", occasion: "passeio" },
-            { id: 29, name: "Blusa Social Preto", style: "elegante", gender: "masculino", color: "preto", occasion: "trabalho" },
-            
-        ];
-
-        function suggestLooks() {
-            const selectedStyle = document.getElementById("style").value;
-            const selectedGender = document.getElementById("gender").value;
-            const selectedOccasion = document.getElementById("occasion").value;
-
-            const filteredItems = catalog.filter(item => 
-                item.style === selectedStyle && 
-                item.gender === selectedGender && 
-                item.occasion === selectedOccasion
-            );
-
-            const resultsDiv = document.getElementById("results");
-            resultsDiv.innerHTML = "";
-
-            if (filteredItems.length === 0) {
-                resultsDiv.innerHTML = "<p>Nenhum look encontrado para suas preferências.</p>";
-            } else {
-                filteredItems.forEach(item => {
-                    const itemDiv = document.createElement("div");
-                    itemDiv.className = "item";
-                    itemDiv.innerHTML = `<strong>${item.name}</strong> - ${item.color}`;
-                    resultsDiv.appendChild(itemDiv);
-                });
-            }
-        }
-    </script>
+    <script src="tela de personalização.js"></script>
+    
 </body>
 </html>

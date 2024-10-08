@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+h1 {
+    color: #003366;
+}
+form {
+    margin-bottom: 20px;
+}
+input, select {
+    margin: 5px;
+    padding: 10px;
+    width: 200px;
+}
+button {
+    padding: 10px 15px;
+    background-color: #003366;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.results {
+    margin-top: 20px;
+}
+.item {
+    border: 1px solid #003366;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+}
